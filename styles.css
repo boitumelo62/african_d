@@ -1,0 +1,1099 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*cursor: none;*/
+}
+
+.cursor {
+  width: 16px;
+  height: 16px;
+  background-color: #bb9339;
+  /*border: none;*/
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.5s ease;
+  clip-path: polygon(18% 0%, 82% 0%, 100% 40%, 50% 100%, 0% 38%);
+  z-index: 999;
+}
+
+header {
+  width: 100vw;
+  height: 10vh;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  padding: 8px 4vw 0 0;
+  text-align: center;
+  z-index: 998;
+  transition: all 0.3s ease;
+
+  & ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+
+    & li {
+      height: 100%;
+      width: 100%;
+      font-size: 16px;
+      border-bottom: #bb9339 2px solid;
+      place-content: center;
+      transition: all 0.3s ease;
+
+      &.homebutton {
+        border-bottom: none;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #dbdbdb;
+
+    &:hover {
+      color: #bb9339;
+    }
+  }
+
+  & ul li#active a {
+    color: #bb9339;
+  }
+}
+
+#logo {
+  height: 60px;
+  transition: all 0.3s ease;
+}
+
+.scrolled #logo {
+  height: 28px;
+}
+
+header.scrolled {
+  background-color: #dbdbdb;
+
+  & ul li.homebutton {
+    border-bottom: #bb9339 2px solid;
+  }
+
+  & a {
+    color: #333433;
+
+    &:hover {
+      color: #bb9339;
+    }
+  }
+}
+
+body {
+  background-color: #dbdbdb;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  font-family: "Felix Titling V2";
+
+  & section#landing {
+    background-repeat: no-repeat;
+    background-color: #333433;
+    color: #dbdbdb;
+    width: 96vw;
+    height: 96vh;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+  }
+}
+
+.landing {
+  background-image: url("images/backgrounds/wineglass_background.webp");
+  background-size: 100% auto;
+  background-position: center;
+  padding: 10vh 4vw 0 4vw;
+
+  & h1 {
+    font-size: 2.4rem;
+    font-weight: normal;
+  }
+
+  & p {
+    font-size: 1.2rem;
+    font-family: "Arial Nova", Arial, sans-serif;
+
+    & a {
+      text-decoration: none;
+      color: #bb9339;
+
+      &:hover {
+        color: #dbdbdb;
+      }
+    }
+  }
+
+  & .socials ul {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    position: relative;
+    top: 12vh;
+
+    & li {
+      list-style-type: none;
+
+      & img {
+        width: 28px;
+
+        &:hover {
+          filter: brightness(100);
+        }
+      }
+    }
+  }
+}
+
+#down {
+  color: #333433;
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 4vh;
+  right: 0.5vw;
+  animation: animatearrow 2s infinite;
+}
+
+@keyframes animatearrow {
+  0% {
+    bottom: 4vh;
+    color: #bb9339;
+  }
+  25% {
+    bottom: 5vh;
+    color: #dbdbdb;
+  }
+  50% {
+    bottom: 6vh;
+    color: #dbdbdb;
+  }
+  100% {
+    bottom: 4vh;
+    color: #bb9339;
+  }
+}
+
+section.about_home {
+  width: 96vw;
+  height: 62vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #dbdbdb;
+  gap: 2vw;
+
+  & div {
+    background-color: #333433;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50%;
+    height: 100%;
+    border-radius: 5px;
+    padding: 4vw;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    & h3 {
+      font-weight: normal;
+      font-size: 1.4rem;
+
+      & em {
+        font-style: normal;
+        font-size: 2rem;
+      }
+    }
+
+    & p {
+      width: 64%;
+      font-family: "Arial Nova", Arial, sans-serif;
+      font-size: 1.2rem;
+
+      & em {
+        font-style: normal;
+
+        & a {
+          text-decoration: none;
+          color: #bb9339;
+
+          &:hover {
+            color: #dbdbdb;
+          }
+        }
+      }
+    }
+  }
+
+  & #story {
+    background-image: url("images/backgrounds/story_background.webp");
+  }
+
+  & #about {
+    background-image: url("images/backgrounds/about_home.webp");
+  }
+}
+
+section.collection_home {
+  width: 96vw;
+  color: #dbdbdb;
+  display: flex;
+  flex-direction: column;
+
+  & h3 {
+    margin: 24px 24px 48px 24px;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #333433;
+
+    & em {
+      font-style: normal;
+      font-size: 1.8rem;
+    }
+  }
+
+  & div.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2vw;
+    width: 100%;
+    height: 96vh;
+    transition: all 0.4s ease;
+
+    & span#large {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      gap: 24px;
+      overflow: hidden;
+
+      & div {
+        background-color: #333433;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 24px;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+
+        & span#image {
+          background-position: top;
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+          transition: all 0.4s ease;
+
+          &:hover {
+            background-position: center;
+            background-size: 110% auto;
+          }
+        }
+
+        & span#text {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          padding: 48px 24px 0;
+
+          & h3 {
+            font-size: 1.4rem;
+            color: #bb9339;
+            text-align: left;
+            font-weight: normal;
+            padding: 0;
+            margin: 0;
+          }
+
+          & p {
+            font-size: 1.2rem;
+            font-family: "Arial Nova", Arial, sans-serif;
+
+            & a {
+              text-decoration: none;
+              color: #bb9339;
+
+              &:hover {
+                color: #dbdbdb;
+              }
+            }
+          }
+        }
+      }
+
+      & div#noir {
+        background-image: url("images/backgrounds/grapes_background.webp");
+        background-position: right top;
+        transition: all 0.4s ease;
+
+        &:hover {
+          & span#image {
+            background-size: 103% auto;
+          }
+        }
+
+        & span#image {
+          background-image: url("images/assets/noir_bottle.png");
+        }
+      }
+
+      & div#balnc {
+        background-image: url("images/backgrounds/wineill_background.webp");
+        background-position: right bottom;
+        transition: all 0.4s ease;
+
+        &:hover {
+          & span#image {
+            background-size: 103% auto;
+          }
+        }
+
+        & span#image {
+          background-image: url("images/assets/balnc_bottle.png");
+        }
+      }
+    }
+
+    & span#small div {
+      background-image: url("images/backgrounds/swartland_homebackground.webp");
+      background-size: auto 100%;
+      background-position: left bottom;
+      background-repeat: no-repeat;
+      background-color: #333433;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+
+      & span#text {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 48px 24px 0;
+        overflow: hidden;
+
+        & h3 {
+          font-size: 1.4rem;
+          color: #bb9339;
+          text-align: left;
+          font-weight: normal;
+          padding: 0;
+          margin: 0;
+        }
+
+        & p {
+          font-size: 1.2rem;
+          font-family: "Arial Nova", Arial, sans-serif;
+
+          & a {
+            text-decoration: none;
+            color: #bb9339;
+
+            &:hover {
+              color: #dbdbdb;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+h1.gallery {
+  margin: 24px 24px 48px 24px;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333433;
+}
+
+.gallery-grid {
+  width: 96vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  font-family: "Arial Nova", Arial, sans-serif;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.02);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  text-align: center;
+  color: white;
+}
+
+.overlay-content p {
+  width: 80%;
+  font-size: 1rem;
+  margin: 0 auto 10px;
+}
+
+.engagement {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.engagement span {
+  color: white;
+}
+
+/* events page */
+
+.events-landing {
+  background-image: url("images/backgrounds/empty-glass_background.webp");
+  background-size: auto 100%;
+  background-position: left;
+  padding: 0 4vw;
+
+  & h1 {
+    font-weight: normal;
+    color: #bb9339;
+    margin: 0;
+    padding: 0;
+    font-size: 2.4rem;
+  }
+
+  & h3 {
+    font-weight: lighter;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+  }
+
+  & p {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    font-family: "Arial Nova", Arial, sans-serif;
+  }
+
+  & .socials {
+    display: flex;
+    gap: 24px;
+
+    & ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      align-items: baseline;
+
+      & li {
+        list-style: none;
+
+        & a {
+          text-decoration: none;
+
+          & img {
+            height: 32px;
+
+            &:hover {
+              filter: brightness(100);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*contact*/
+
+section.contact-landing {
+  background-image: url("images/backgrounds/contact_background.webp");
+  background-size: 100% auto;
+  padding: 0 4vw;
+
+  & div.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: left;
+    font-family: "Arial Nova", Arial, sans-serif;
+
+    & h2 {
+      font-size: 2.4rem;
+      font-family: "Felix Titling V2";
+      font-weight: normal;
+      color: #bb9339;
+    }
+
+    & p {
+      font-size: 1.4rem;
+
+      & em {
+        text-decoration: underline;
+
+        & a {
+          color: #dbdbdb;
+
+          &:hover {
+            color: #bb9339;
+          }
+        }
+      }
+    }
+
+    & .socials {
+      & span {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        align-items: baseline;
+        justify-content: left;
+
+        & img:hover {
+          filter: brightness(100);
+        }
+      }
+    }
+  }
+}
+
+a.whatsapp-button {
+  height: 100%;
+  align-items: center;
+  width: fit-content;
+  display: flex;
+  transition: all 0.4s ease;
+
+  &:hover {
+    & img#icon {
+      display: none;
+    }
+
+    & img#active {
+      display: block;
+      filter: none;
+    }
+  }
+
+  & img {
+    width: auto;
+
+    &#active {
+      display: none;
+    }
+  }
+}
+
+/* about page */
+
+section.about-landing {
+  margin: 0 auto;
+  padding: 0;
+
+  & span {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+
+    & video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: bottom;
+      filter: brightness(50%);
+    }
+
+    & h3 {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1rem;
+      font-family: "Felix Titling V2";
+      font-weight: normal;
+      color: #dbdbdb;
+    }
+
+    & h1 {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.6rem;
+      font-family: "Felix Titling V2";
+      font-weight: normal;
+      color: #dbdbdb;
+    }
+
+    & p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.4rem;
+      color: #dbdbdb;
+      font-family: "Arial Nova", Arial, sans-serif;
+    }
+
+    & div {
+      height: 100px;
+      width: 10px;
+      position: absolute;
+      top: 62%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+      padding-bottom: 0px;
+      animation: padding 12s ease infinite;
+      display: flex;
+      gap: 2px;
+
+      & span {
+        width: 2px;
+        background-color: #bb9339;
+        animation: directiondown 12s ease infinite;
+        border-radius: 1px;
+
+        &#side {
+          height: 80%;
+          filter: opacity(80%);
+        }
+      }
+    }
+  }
+}
+
+@keyframes padding {
+  0% {
+    padding-bottom: 100px;
+  }
+  25% {
+    padding-bottom: 00px;
+  }
+  50% {
+    padding-bottom: 100px;
+  }
+  75% {
+    padding-bottom: 100px;
+  }
+  100% {
+    padding-bottom: 100px;
+  }
+}
+
+@keyframes directiondown {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+section.about {
+  display: flex;
+  flex-direction: column;
+  width: 96vw;
+  height: auto;
+  margin: 0 auto;
+
+  & div.about {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    height: 100%;
+    gap: 24px;
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+
+    & h3 {
+      color: #333433;
+      font-size: 1.8rem;
+      font-family: "Felix Titling V2";
+      font-weight: normal;
+      margin: 24px 0 24px 0;
+    }
+
+    & p {
+      color: #333433;
+      font-size: 1.2rem;
+      font-family: "Arial Nova", Arial, sans-serif;
+      padding: 0 0 24px 0;
+    }
+  }
+}
+
+section.history,
+section.vision,
+section.team {
+  display: flex;
+  flex-direction: column;
+  width: 96vw;
+  height: auto;
+  margin: 0 auto;
+
+  & div#story,
+  & div#vision,
+  & div#team {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 4vw;
+    border-radius: 5px;
+
+    & h3 {
+      color: #bb9339;
+      font-size: 1.8rem;
+      font-family: "Felix Titling V2";
+      font-weight: normal;
+      margin: 0 4vh 24px 4vh;
+    }
+
+    & p {
+      width: 48%;
+      color: #dbdbdb;
+      font-size: 1.2rem;
+      font-family: "Arial Nova", Arial, sans-serif;
+      margin: 0 4vh;
+    }
+  }
+}
+
+section.history div#story {
+  background-image: url(images/backgrounds/story_background.webp);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: left;
+}
+
+section.vision div#vision {
+  background-image: url(images/backgrounds/vision_background.webp);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: left;
+}
+
+/* Wine Page */
+
+section.wine-landing {
+  margin: 0 auto;
+  padding: 0;
+
+  & span {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+
+    & video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: bottom;
+      filter: brightness(50%);
+    }
+
+    & h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.4rem;
+      font-family: "Felix Titling V2";
+      font-weight: normal;
+      color: #dbdbdb;
+    }
+  }
+}
+
+section.swartland {
+  display: flex;
+  flex-direction: column;
+  width: 96vw;
+  height: auto;
+  margin: 0 auto;
+  gap: 24px;
+}
+
+div.swartland-info {
+  display: flex;
+  flex-direction: column;
+  width: 48vw;
+  height: 100%;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+
+  & h3 {
+    color: #333433;
+    font-size: 1.8rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+    margin: 24px 0 24px 0;
+  }
+  & p {
+    color: #333433;
+    font-size: 1.2rem;
+    font-family: "Arial Nova", Arial, sans-serif;
+  }
+}
+
+div.carousel {
+  display: flex;
+  flex-direction: column;
+  width: 48vw;
+  height: 100%;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+}
+
+div.carousel-container {
+  display: flex;
+  flex-direction: column;
+  width: 48vw;
+  height: auto;
+}
+
+div#item1 {
+  display: block;
+}
+
+div#item2 {
+  display: none;
+}
+
+div#item3 {
+  display: none;
+}
+
+div.carousel-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 60vw;
+  height: auto;
+  position: relative;
+  bottom: 50%;
+  margin: 0;
+  padding: 0;
+
+  & button {
+    background-color: #dbdbdb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 5vh;
+    height: 5vh;
+    font-size: 1.4rem;
+    font-family: "Felix Titling V2";
+    font-weight: lighter;
+    color: #333433;
+  }
+}
+
+button.previous {
+  position: relative;
+  right: 100%;
+}
+
+button.next {
+  position: relative;
+  left: 100%;
+  transform: translate(-200%, 0);
+}
+
+section.collection {
+  width: 96vw;
+  height: auto;
+  color: #dbdbdb;
+
+  & div.container {
+    width: 100%;
+    height: auto;
+    transition: all 0.4s ease;
+
+    & span#large {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      gap: 24px;
+      overflow: hidden;
+
+      & div {
+        background-color: #333433;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 24px;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+
+        & span#image {
+          background-position: top;
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+          transition: all 0.4s ease;
+
+          &:hover {
+            background-position: center;
+            background-size: 110% auto;
+          }
+        }
+
+        & span#text {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          padding: 48px 24px;
+
+          & h3 {
+            font-size: 1.8rem;
+            color: #bb9339;
+            text-align: left;
+            font-weight: normal;
+            padding: 0;
+            margin: 0;
+          }
+
+          & p {
+            font-size: 1.2rem;
+            font-family: "Arial Nova", Arial, sans-serif;
+
+            & a {
+              height: 24px;
+              width: fit-content;
+              display: block;
+              text-decoration: none;
+              color: #bb9339;
+
+              & em {
+                font-family: "Felix Titling V2";
+                font-weight: lighter;
+                font-style: normal;
+                display: flex;
+
+                & span {
+                  border: solid #bb9339;
+                  border-width: 0 2px 2px 0;
+                  transform: rotate(-45deg);
+                  width: 12px;
+                  height: 12px;
+                  display: block;
+                  place-self: center;
+                  margin-left: 8px;
+                }
+              }
+
+              &:hover {
+                color: #dbdbdb;
+
+                & em span {
+                  border-color: #dbdbdb;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      & div#noir {
+        background-image: url("images/backgrounds/grapes_background.webp");
+        background-position: right top;
+        transition: all 0.4s ease;
+        border-radius: 5px 5px 0 0;
+
+        &:hover {
+          & span#image {
+            background-size: 103% auto;
+          }
+        }
+
+        & span#image {
+          background-image: url("images/assets/noir_bottle.png");
+        }
+      }
+
+      & div#balnc {
+        background-image: url("images/backgrounds/wineill_background.webp");
+        background-position: right bottom;
+        transition: all 0.4s ease;
+        border-radius: 0 0 5px 5px;
+
+        &:hover {
+          & span#image {
+            background-size: 103% auto;
+          }
+        }
+
+        & span#image {
+          background-image: url("images/assets/balnc_bottle.png");
+        }
+      }
+    }
+  }
+}
