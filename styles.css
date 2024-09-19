@@ -198,7 +198,7 @@ section.footer {
 
 .landing {
   background-image: url("images/backgrounds/wineglass_background.webp");
-  background-size: 100% auto;
+  background-size: cover;
   background-position: center;
   padding: 10vh 4vw 0 4vw;
 
@@ -715,7 +715,7 @@ section.review {
 
 section.contact-landing {
   background-image: url("images/backgrounds/contact_background.webp");
-  background-size: 100% auto;
+  background-size: cover;
   padding: 0 4vw;
 
   & div.contact {
@@ -812,43 +812,44 @@ section.about-landing {
       filter: brightness(50%);
     }
 
-    & h3 {
+    & div#text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       position: absolute;
-      top: 40%;
+      top: 47%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 1rem;
-      font-family: "Felix Titling V2";
-      font-weight: normal;
-      color: #dbdbdb;
+      width: 80%;
+      text-align: center;
+
+      & h3 {
+        font-size: 1rem;
+        font-family: "Felix Titling V2";
+        font-weight: normal;
+        color: #dbdbdb;
+      }
+
+      & h1 {
+        font-size: 2.6rem;
+        font-family: "Felix Titling V2";
+        font-weight: normal;
+        color: #dbdbdb;
+      }
+
+      & p {
+        font-size: 1.4rem;
+        color: #dbdbdb;
+        font-family: "Arial Nova", Arial, sans-serif;
+      }
     }
 
-    & h1 {
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2.6rem;
-      font-family: "Felix Titling V2";
-      font-weight: normal;
-      color: #dbdbdb;
-    }
-
-    & p {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.4rem;
-      color: #dbdbdb;
-      font-family: "Arial Nova", Arial, sans-serif;
-    }
-
-    & div {
+    & div#animation {
       height: 100px;
       width: 10px;
       position: absolute;
-      top: 62%;
+      top: 66%;
       left: 50%;
       transform: translate(-50%, -50%);
       overflow: hidden;
@@ -860,8 +861,8 @@ section.about-landing {
       & span {
         width: 2px;
         background-color: #bb9339;
-        animation: directiondown 12s ease infinite;
         border-radius: 1px;
+        animation: directiondown 12s ease infinite;
 
         &#side {
           height: 80%;
@@ -1013,6 +1014,10 @@ section.wine-landing {
       object-fit: cover;
       object-position: top;
       filter: brightness(50%);
+
+      &#vertical {
+        display: none;
+      }
     }
 
     & h1 {
@@ -1159,6 +1164,7 @@ div.carousel-buttons {
   height: auto;
   position: relative;
   bottom: 50%;
+  left: 8px;
   margin: 0;
   padding: 0;
 
@@ -1342,6 +1348,320 @@ section.collection {
           background-image: url("images/assets/balnc_bottle.png");
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* index page */
+
+  section.landing {
+    & h1 {
+      font-size: 1.8rem;
+    }
+
+    & p {
+      font-size: 1rem;
+
+      & br {
+        display: none;
+      }
+    }
+
+    & .socials ul li a img {
+      width: 24px;
+    }
+  }
+
+  section.about_home {
+    flex-direction: column;
+    height: auto;
+    gap: 24px;
+
+    & div {
+      width: 100%;
+      padding: 24px;
+      gap: 16px;
+
+      & h3 {
+        font-size: 1.2rem;
+
+        & em {
+          font-size: 1.6rem;
+        }
+      }
+
+      & p {
+        font-size: 1rem;
+
+        & br {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  section.review {
+    & div.review-container {
+      width: 100%;
+      gap: 16px;
+
+      & div.review-card .contentlist p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  section.collection_home div.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: auto;
+
+    & span#large div#noir {
+      background-size: auto 70%;
+    }
+
+    & div#balnc {
+      background-size: auto 70%;
+    }
+  }
+
+  section.collection_home div.container span#large div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 0;
+
+    & span#text {
+      padding: 8px 24px 48px 24px;
+    }
+
+    & span#image {
+      margin-top: 24px;
+      width: 50%;
+      height: 45vh;
+    }
+  }
+
+  section.collection_home div.container span#small div {
+    scale: -1 1;
+
+    & span#text {
+      padding: 48px 24px;
+      scale: -1 1;
+    }
+  }
+
+  .cursor {
+    display: none;
+  }
+
+  #down {
+    display: none;
+  }
+
+  footer {
+    & p {
+      font-size: 1rem;
+    }
+  }
+
+  section.footer {
+    & div.container {
+      & p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  /* contacts page */
+
+  section.contact-landing {
+    & div.contact {
+      text-align: center;
+      align-items: center;
+
+      & h2 {
+        font-size: 2rem;
+      }
+
+      & p {
+        font-size: 1.2rem;
+      }
+
+      & img {
+        height: 24px;
+      }
+    }
+  }
+
+  /* events page */
+
+  section.events-landing {
+    align-items: center;
+    text-align: center;
+
+    & h1 {
+      font-size: 2rem;
+    }
+
+    & h3 {
+      font-size: 1.2rem;
+    }
+
+    & p {
+      font-size: 1.2rem;
+
+      & br {
+        display: none;
+      }
+    }
+
+    & div.socials ul {
+      gap: 16px;
+
+      & li a img {
+        height: 24px;
+      }
+    }
+  }
+
+  /* about page */
+
+  section.about-landing {
+    align-items: center;
+    text-align: center;
+
+    & span {
+      place-content: center;
+
+      & video {
+        width: auto;
+        margin: 0 auto;
+      }
+
+      & div#text {
+        gap: 10px;
+        top: 45%;
+
+        & h1 {
+          font-size: 2rem;
+        }
+
+        & p {
+          font-size: 1.2rem;
+        }
+      }
+
+      & div#animation {
+        top: 70%;
+      }
+    }
+  }
+
+  section.about div.about {
+    width: 80%;
+  }
+
+  section.history div#story,
+  section.vision div#vision {
+    padding: 48px 16px;
+    background-size: cover;
+    text-align: center;
+
+    & p {
+      width: 80%;
+    }
+  }
+
+  /* wine page */
+
+  section.wine-landing {
+    align-items: center;
+    text-align: center;
+
+    & span {
+      place-content: center;
+
+      & video {
+        width: auto;
+        margin: 0 auto;
+
+        &#horizontal {
+          display: none;
+        }
+
+        &#vertical {
+          display: block;
+          width: 100%;
+          height: auto;
+          place-content: baseline;
+        }
+      }
+
+      & h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  section.swartland div.swartland-info {
+    width: 100%;
+
+    & h3 {
+      font-size: 1.4rem;
+
+      & p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  div.carousel {
+    width: 100%;
+
+    & div.carousel-container {
+      width: 75%;
+    }
+
+    & div.carousel-buttons {
+      width: 85vw;
+    }
+  }
+
+  section.collection {
+    & div.container {
+      & span#large {
+        & div#noir {
+          background-size: auto 70%;
+        }
+
+        & div#balnc {
+          background-size: auto 70%;
+        }
+      }
+    }
+  }
+
+  section.collection div.container span#large div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 0;
+
+    & span#text {
+      padding: 8px 24px 48px 24px;
+    }
+
+    & span#image {
+      margin-top: 24px;
+      width: 50%;
+      height: 45vh;
     }
   }
 }

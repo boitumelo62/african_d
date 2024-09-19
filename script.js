@@ -74,38 +74,73 @@ arrowRight.addEventListener("click", () => {
 
 // video script
 
-const winevideo = document.querySelector("#landing.wine-landing span video");
+const winevideo = document.querySelector(
+  "#landing.wine-landing span video#horizontal"
+);
+const winevideo2 = document.querySelector(
+  "#landing.wine-landing span video#vertical"
+);
 const wineH1 = document.querySelector("#landing.wine-landing span h1");
 const playButton = document.getElementById("play");
 const pauseButton = document.getElementById("pause");
 const muteButton = document.getElementById("mute");
 const unmuteButton = document.getElementById("unmute");
 
-pauseButton.addEventListener("click", function () {
-  winevideo.pause();
-  wineH1.style.opacity = "1";
-  pauseButton.style.display = "none";
-  playButton.style.display = "block";
-});
-
-playButton.addEventListener("click", function () {
-  winevideo.play();
-  wineH1.style.opacity = "0";
-  playButton.style.display = "none";
-  pauseButton.style.display = "block";
-});
-
-unmuteButton.addEventListener("click", function () {
+if (window.matchMedia("(max-width: 768px)").matches) {
   winevideo.muted = true;
-  unmuteButton.style.display = "none";
-  muteButton.style.display = "block";
-});
+  pauseButton.addEventListener("click", function () {
+    winevideo2.pause();
+    wineH1.style.opacity = "1";
+    pauseButton.style.display = "none";
+    playButton.style.display = "block";
+  });
 
-muteButton.addEventListener("click", function () {
-  winevideo.muted = false;
-  muteButton.style.display = "none";
-  unmuteButton.style.display = "block";
-});
+  playButton.addEventListener("click", function () {
+    winevideo2.play();
+    wineH1.style.opacity = "0";
+    playButton.style.display = "none";
+    pauseButton.style.display = "block";
+  });
+
+  unmuteButton.addEventListener("click", function () {
+    winevideo2.muted = true;
+    unmuteButton.style.display = "none";
+    muteButton.style.display = "block";
+  });
+
+  muteButton.addEventListener("click", function () {
+    winevideo2.muted = false;
+    muteButton.style.display = "none";
+    unmuteButton.style.display = "block";
+  });
+} else {
+  winevideo2.muted = true;
+  pauseButton.addEventListener("click", function () {
+    winevideo.pause();
+    wineH1.style.opacity = "1";
+    pauseButton.style.display = "none";
+    playButton.style.display = "block";
+  });
+
+  playButton.addEventListener("click", function () {
+    winevideo.play();
+    wineH1.style.opacity = "0";
+    playButton.style.display = "none";
+    pauseButton.style.display = "block";
+  });
+
+  unmuteButton.addEventListener("click", function () {
+    winevideo.muted = true;
+    unmuteButton.style.display = "none";
+    muteButton.style.display = "block";
+  });
+
+  muteButton.addEventListener("click", function () {
+    winevideo.muted = false;
+    muteButton.style.display = "none";
+    unmuteButton.style.display = "block";
+  });
+}
 
 // carousel script
 
