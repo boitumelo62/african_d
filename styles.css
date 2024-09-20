@@ -1,16 +1,6 @@
 @font-face {
   font-family: "Felix Titling V2";
-  src: url("http://db.onlinewebfonts.com/t/f1cfb0d208038e21ad90267089ab2584.eot");
-  src: url("http://db.onlinewebfonts.com/t/f1cfb0d208038e21ad90267089ab2584.eot?#iefix")
-      format("embedded-opentype"),
-    url("http://db.onlinewebfonts.com/t/f1cfb0d208038e21ad90267089ab2584.woff")
-      format("woff"),
-    url("http://db.onlinewebfonts.com/t/f1cfb0d208038e21ad90267089ab2584.woff2")
-      format("woff2"),
-    url("http://db.onlinewebfonts.com/t/f1cfb0d208038e21ad90267089ab2584.ttf")
-      format("truetype"),
-    url("http://db.onlinewebfonts.com/t/f1cfb0d208038e21ad90267089ab2584.svg#Felix Titling V2")
-      format("svg");
+  src: url("images/assets/felix-titling.ttf") format("truetype");
 }
 
 * {
@@ -29,6 +19,7 @@
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: background-color 0.5s ease;
+  transition: all 10s smooth;
   clip-path: polygon(18% 0%, 82% 0%, 100% 40%, 50% 100%, 0% 38%);
   z-index: 999;
 }
@@ -39,7 +30,8 @@ header {
   margin: 0 auto;
   position: fixed;
   top: 0;
-  padding: 8px 4vw 0 0;
+  left: 0;
+  padding: 8px 2vw 0 2vw;
   text-align: center;
   z-index: 998;
   transition: all 0.3s ease;
@@ -104,6 +96,11 @@ header.scrolled {
       color: #bb9339;
     }
   }
+
+  .hamburger {
+    top: 0;
+    right: 8px;
+  }
 }
 
 body {
@@ -116,6 +113,7 @@ body {
 main {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 4vh;
   font-family: "Felix Titling V2";
 
@@ -133,9 +131,79 @@ main {
   }
 }
 
+footer {
+  padding: 24px 2vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  background-color: #bb9339;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    & div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+  }
+}
+
+section.footer {
+  width: 100vw;
+  height: 100%;
+
+  & div.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 96vw;
+    margin: 0 auto;
+    padding: 40px 0 24px 0;
+    gap: 24px;
+
+    & div.socials {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      & span {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+
+        & img {
+          filter: brightness(0);
+
+          &:hover {
+            filter: brightness(5);
+          }
+        }
+      }
+    }
+
+    & p {
+      font-size: 20px;
+    }
+  }
+}
+
 .landing {
   background-image: url("images/backgrounds/wineglass_background.webp");
-  background-size: 100% auto;
+  background-size: cover;
   background-position: center;
   padding: 10vh 4vw 0 4vw;
 
@@ -508,6 +576,86 @@ h1.gallery {
   color: white;
 }
 
+section.review {
+  padding: 24px;
+  width: 96vw;
+
+  & div.review-container {
+    width: 70%;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+
+    &:hover {
+      & div.review-card p {
+        color: #000;
+      }
+    }
+
+    & h1 {
+      margin: 0 24px 24px 24px;
+      padding: 0;
+      font-size: 1.8rem;
+      color: #333433;
+    }
+
+    & div.review-card {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      justify-content: center;
+      align-items: center;
+      transition: all 4s ease;
+
+      & .contentlist {
+        & p {
+          font-size: 1.2rem;
+          font-family: "Arial Nova", Arial, sans-serif;
+          text-align: center;
+          color: #333433;
+          padding-bottom: 24px;
+        }
+      }
+
+      & span {
+        border: solid #bb9339;
+        border-width: 0 2px 2px 0;
+        width: 24px;
+        height: 12px;
+        display: block;
+        opacity: 0.5;
+
+        &:hover {
+          cursor: pointer;
+          border: #333433 solid;
+          border-width: 0 2px 2px 0;
+          opacity: 1;
+        }
+      }
+
+      & span#arrow-left {
+        transform: rotate(135deg);
+      }
+
+      & span#arrow-right {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+.contentlist {
+  display: none;
+  width: 100%;
+  padding: 0 24px;
+}
+
+#contentlist1 {
+  display: flex;
+}
+
 /* events page */
 
 .events-landing {
@@ -572,7 +720,7 @@ h1.gallery {
 
 section.contact-landing {
   background-image: url("images/backgrounds/contact_background.webp");
-  background-size: 100% auto;
+  background-size: cover;
   padding: 0 4vw;
 
   & div.contact {
@@ -669,43 +817,44 @@ section.about-landing {
       filter: brightness(50%);
     }
 
-    & h3 {
+    & div#text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       position: absolute;
-      top: 40%;
+      top: 47%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 1rem;
-      font-family: "Felix Titling V2";
-      font-weight: normal;
-      color: #dbdbdb;
+      width: 80%;
+      text-align: center;
+
+      & h3 {
+        font-size: 1rem;
+        font-family: "Felix Titling V2";
+        font-weight: normal;
+        color: #dbdbdb;
+      }
+
+      & h1 {
+        font-size: 2.6rem;
+        font-family: "Felix Titling V2";
+        font-weight: normal;
+        color: #dbdbdb;
+      }
+
+      & p {
+        font-size: 1.4rem;
+        color: #dbdbdb;
+        font-family: "Arial Nova", Arial, sans-serif;
+      }
     }
 
-    & h1 {
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2.6rem;
-      font-family: "Felix Titling V2";
-      font-weight: normal;
-      color: #dbdbdb;
-    }
-
-    & p {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.4rem;
-      color: #dbdbdb;
-      font-family: "Arial Nova", Arial, sans-serif;
-    }
-
-    & div {
+    & div#animation {
       height: 100px;
       width: 10px;
       position: absolute;
-      top: 62%;
+      top: 66%;
       left: 50%;
       transform: translate(-50%, -50%);
       overflow: hidden;
@@ -717,8 +866,8 @@ section.about-landing {
       & span {
         width: 2px;
         background-color: #bb9339;
-        animation: directiondown 12s ease infinite;
         border-radius: 1px;
+        animation: directiondown 12s ease infinite;
 
         &#side {
           height: 80%;
@@ -868,11 +1017,16 @@ section.wine-landing {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: bottom;
+      object-position: top;
       filter: brightness(50%);
+
+      &#vertical {
+        display: none;
+      }
     }
 
     & h1 {
+      opacity: 0;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -881,7 +1035,69 @@ section.wine-landing {
       font-family: "Felix Titling V2";
       font-weight: normal;
       color: #dbdbdb;
+      animation: h1display 5s;
+      animation-delay: h1display 10s;
     }
+
+    & div {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      height: 24px;
+      position: absolute;
+      bottom: 6.4vh;
+      right: 4vw;
+      color: #dbdbdb;
+
+      & button {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+        & #play {
+          display: none;
+        }
+
+        & #pause {
+          display: block;
+        }
+
+        & #mute {
+          display: none;
+        }
+
+        & #unmute {
+          display: block;
+        }
+
+        & img {
+          height: 100%;
+
+          &:hover {
+            filter: brightness(500%);
+          }
+
+          &:active {
+            filter: brightness(100%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes h1display {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -953,20 +1169,48 @@ div.carousel-buttons {
   height: auto;
   position: relative;
   bottom: 50%;
+  left: 8px;
   margin: 0;
   padding: 0;
 
   & button {
-    background-color: #dbdbdb;
+    background-color: transparent;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    width: 5vh;
-    height: 5vh;
-    font-size: 1.4rem;
-    font-family: "Felix Titling V2";
-    font-weight: lighter;
-    color: #333433;
+    width: 28px;
+    height: 28px;
+
+    &:hover {
+      & span {
+        opacity: 1;
+        cursor: pointer;
+        border: solid #333433;
+        border-width: 0 2px 2px 0;
+      }
+    }
+
+    & span {
+      border: solid #bb9339;
+      border-width: 0 2px 2px 0;
+      width: 12px;
+      height: 12px;
+      display: block;
+      opacity: 0.5;
+
+      &:active {
+        cursor: pointer;
+        border: solid #bb9339;
+        border-width: 0 2px 2px 0;
+      }
+    }
+
+    & span#arrow-left {
+      transform: rotate(135deg);
+    }
+
+    & span#arrow-right {
+      transform: rotate(-45deg);
+    }
   }
 }
 
@@ -1109,6 +1353,405 @@ section.collection {
           background-image: url("images/assets/balnc_bottle.png");
         }
       }
+    }
+  }
+}
+
+/* Hamburger Menu Styles */
+
+.hamburger {
+  background-image: url("images/icons/menu.webp");
+  background-position: top;
+  background-size: cover;
+  position: fixed;
+  z-index: 998;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger div {
+  display: none;
+  flex-direction: column;
+  width: 96vw;
+  height: auto;
+  margin: 0 auto;
+  background-color: #dbdbdb;
+  border-bottom: #bb9339 solid 2px;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: center;
+
+  & span {
+    width: 96vw;
+    height: auto;
+    margin: 0 auto;
+    padding: 24px;
+
+    &#home a img {
+      height: 72px;
+    }
+
+    & a {
+      font-size: 1.4rem;
+      color: #000;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* general */
+
+  header {
+    display: flex;
+    text-align: left;
+    align-items: center;
+  }
+
+  header ul li.homebutton {
+    padding-left: 24px;
+    padding-top: 8px;
+  }
+
+  header ul li:not(.homebutton) {
+    display: none;
+
+    & a img {
+      height: 8vh;
+    }
+  }
+
+  .hamburger {
+    display: flex;
+    width: 8vw;
+    height: 8vh;
+    top: 8px;
+    right: 16px;
+    margin: 8px 2vw 0 2vw;
+
+    &#active {
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      top: 0;
+      right: 0;
+      z-index: 999;
+
+      & div {
+        display: flex;
+      }
+    }
+  }
+
+  /* index page */
+
+  section.landing {
+    & h1 {
+      font-size: 1.8rem;
+    }
+
+    & p {
+      font-size: 1rem;
+
+      & br {
+        display: none;
+      }
+    }
+
+    & .socials ul li a img {
+      width: 24px;
+    }
+  }
+
+  section.about_home {
+    flex-direction: column;
+    height: auto;
+    gap: 24px;
+
+    & div {
+      width: 100%;
+      padding: 24px;
+      gap: 16px;
+
+      & h3 {
+        font-size: 1.2rem;
+
+        & em {
+          font-size: 1.6rem;
+        }
+      }
+
+      & p {
+        font-size: 1rem;
+
+        & br {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  section.review {
+    & div.review-container {
+      width: 100%;
+      gap: 16px;
+
+      & div.review-card .contentlist p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  section.collection_home div.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: auto;
+
+    & span#large div#noir {
+      background-size: auto 70%;
+    }
+
+    & div#balnc {
+      background-size: auto 70%;
+    }
+  }
+
+  section.collection_home div.container span#large div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 0;
+
+    & span#text {
+      padding: 8px 24px 48px 24px;
+    }
+
+    & span#image {
+      margin-top: 24px;
+      width: 50%;
+      height: 45vh;
+    }
+  }
+
+  section.collection_home div.container span#small div {
+    scale: -1 1;
+
+    & span#text {
+      padding: 48px 24px;
+      scale: -1 1;
+    }
+  }
+
+  .cursor {
+    display: none;
+  }
+
+  #down {
+    display: none;
+  }
+
+  footer {
+    & p {
+      font-size: 1rem;
+    }
+  }
+
+  section.footer {
+    & div.container {
+      & p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  /* contacts page */
+
+  section.contact-landing {
+    & div.contact {
+      text-align: center;
+      align-items: center;
+
+      & h2 {
+        font-size: 2rem;
+      }
+
+      & p {
+        font-size: 1.2rem;
+      }
+
+      & img {
+        height: 24px;
+      }
+    }
+  }
+
+  /* events page */
+
+  section.events-landing {
+    align-items: center;
+    text-align: center;
+
+    & h1 {
+      font-size: 2rem;
+    }
+
+    & h3 {
+      font-size: 1.2rem;
+    }
+
+    & p {
+      font-size: 1.2rem;
+
+      & br {
+        display: none;
+      }
+    }
+
+    & div.socials ul {
+      gap: 16px;
+
+      & li a img {
+        height: 24px;
+      }
+    }
+  }
+
+  /* about page */
+
+  section.about-landing {
+    align-items: center;
+    text-align: center;
+
+    & span {
+      place-content: center;
+
+      & video {
+        width: auto;
+        margin: 0 auto;
+      }
+
+      & div#text {
+        gap: 10px;
+        top: 45%;
+
+        & h1 {
+          font-size: 2rem;
+        }
+
+        & p {
+          font-size: 1.2rem;
+        }
+      }
+
+      & div#animation {
+        top: 70%;
+      }
+    }
+  }
+
+  section.about div.about {
+    width: 80%;
+  }
+
+  section.history div#story,
+  section.vision div#vision {
+    padding: 48px 16px;
+    background-size: cover;
+    text-align: center;
+
+    & p {
+      width: 80%;
+    }
+  }
+
+  /* wine page */
+
+  section.wine-landing {
+    align-items: center;
+    text-align: center;
+
+    & span {
+      place-content: center;
+
+      & video {
+        width: auto;
+        margin: 0 auto;
+
+        &#horizontal {
+          display: none;
+        }
+
+        &#vertical {
+          display: block;
+          width: 100%;
+          height: auto;
+          place-content: baseline;
+        }
+      }
+
+      & h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  section.swartland div.swartland-info {
+    width: 100%;
+
+    & h3 {
+      font-size: 1.4rem;
+
+      & p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  div.carousel {
+    width: 100%;
+
+    & div.carousel-container {
+      width: 75%;
+    }
+
+    & div.carousel-buttons {
+      width: 85vw;
+    }
+  }
+
+  section.collection {
+    & div.container {
+      & span#large {
+        & div#noir {
+          background-size: auto 70%;
+        }
+
+        & div#balnc {
+          background-size: auto 70%;
+        }
+      }
+    }
+  }
+
+  section.collection div.container span#large div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 0;
+
+    & span#text {
+      padding: 8px 24px 48px 24px;
+    }
+
+    & span#image {
+      margin-top: 24px;
+      width: 50%;
+      height: 45vh;
     }
   }
 }
