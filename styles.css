@@ -1412,6 +1412,10 @@ section.collection {
   header ul li.homebutton {
     padding-left: 24px;
     padding-top: 8px;
+
+    & a img{
+      height: 8vh
+    }
   }
 
   header ul li:not(.homebutton) {
