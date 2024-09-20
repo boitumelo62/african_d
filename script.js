@@ -18,6 +18,16 @@ function checkScroll() {
 
 window.addEventListener("scroll", checkScroll);
 
+const hamburger = document.getElementById("hamburger");
+
+hamburger.addEventListener("click", () => {
+  if (hamburger.id === "active") {
+    hamburger.removeAttribute("id");
+  } else {
+    hamburger.setAttribute("id", "active");
+  }
+});
+
 // cursor script
 
 const cursor = document.querySelector(".cursor");
