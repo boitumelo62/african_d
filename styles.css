@@ -1404,7 +1404,9 @@ section.collection {
   /* general */
 
   header {
+    display: flex;
     text-align: left;
+    align-items: center;
   }
 
   header ul li.homebutton {
