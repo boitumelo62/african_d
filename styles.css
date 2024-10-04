@@ -142,7 +142,6 @@ footer {
   gap: 12px;
   justify-content: center;
   align-items: center;
-  text-align: center;
 
   & div {
     display: flex;
@@ -398,7 +397,7 @@ section.collection_home {
           display: flex;
           flex-direction: column;
           gap: 24px;
-          padding: 48px 24px 0;
+          padding: 48px 24px;
 
           & h3 {
             font-size: 1.4rem;
@@ -624,8 +623,8 @@ section.review {
         border: solid #bb9339;
         border-width: 0 2px 2px 0;
         width: 24px;
-        height: 12px;
-        display: block;
+        aspect-ratio: 1 / 1;
+        display: flex;
         opacity: 0.5;
 
         &:hover {
@@ -990,7 +989,7 @@ section.team {
 section.history div#story {
   background-image: url(images/backgrounds/story_background.webp);
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-size: cover;
   background-position: left;
 }
 
@@ -1015,11 +1014,17 @@ section.wine-landing {
     border-radius: 5px;
 
     & video {
+      display: flex;
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: cover;
-      object-position: top;
-      filter: brightness(50%);
+      object-position: center;
+      filter: brightness(80%);
+
+      &#horizontal {
+        align-items: center;
+        justify-content: center;
+      }
 
       &#vertical {
         display: none;
@@ -1034,6 +1039,7 @@ section.wine-landing {
       transform: translate(-50%, -50%);
       font-size: 2.4rem;
       font-family: "Felix Titling V2";
+      text-align: center;
       font-weight: normal;
       color: #dbdbdb;
       animation: h1display 5s;
@@ -1412,14 +1418,14 @@ section.collection {
   header ul li.homebutton {
     padding-left: 24px;
     padding-top: 8px;
-
-    & a img{
-      height: 8vh
-    }
   }
 
   header ul li:not(.homebutton) {
     display: none;
+
+    & a img {
+      height: 8vh;
+    }
   }
 
   .hamburger {
@@ -1447,20 +1453,26 @@ section.collection {
   /* index page */
 
   section.landing {
+    background-position: calc(100% - 40%) center;
+
     & h1 {
-      font-size: 1.8rem;
+      font-size: 2.2rem;
     }
 
     & p {
-      font-size: 1rem;
+      font-size: 1.2rem;
 
       & br {
         display: none;
       }
     }
 
+    & .socials ul {
+      top: 8vh;
+    }
+
     & .socials ul li a img {
-      width: 24px;
+      width: 28px;
     }
   }
 
@@ -1470,6 +1482,7 @@ section.collection {
     gap: 24px;
 
     & div {
+      background-size: cover;
       width: 100%;
       padding: 24px;
       gap: 16px;
@@ -1524,18 +1537,18 @@ section.collection {
 
   section.collection_home div.container span#large div {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     gap: 0;
 
     & span#text {
+      margin-top: 24px;
       padding: 8px 24px 48px 24px;
     }
 
     & span#image {
-      margin-top: 24px;
-      width: 50%;
-      height: 45vh;
+      width: 90%;
+      height: 35vh;
     }
   }
 
@@ -1563,6 +1576,7 @@ section.collection {
   }
 
   section.footer {
+    height: auto;
     & div.container {
       & p {
         font-size: 16px;
@@ -1691,7 +1705,8 @@ section.collection {
           display: block;
           width: 100%;
           height: auto;
-          place-content: baseline;
+          object-fit: cover;
+          place-content: center;
         }
       }
 
@@ -1741,18 +1756,35 @@ section.collection {
 
   section.collection div.container span#large div {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     gap: 0;
 
     & span#text {
+      margin-top: 24px;
       padding: 8px 24px 48px 24px;
     }
 
     & span#image {
-      margin-top: 24px;
-      width: 50%;
-      height: 45vh;
+      width: 90%;
+      height: 40vh;
     }
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  section.collection_home {
+    & div.container {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  section.wine-landing span video {
+    width: auto;
+  }
+
+  section.about-landing span video {
+    width: auto;
   }
 }
