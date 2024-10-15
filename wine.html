@@ -24,10 +24,11 @@
               ><img id="logo" src="images/icons/main_logo.webp" alt="Full Logo"
             /></a>
           </li>
-          <li id="active"><a href="wine.html">WINES</a></li>
-          <li><a href="events.html">EVENTS</a></li>
-          <li><a href="about.html">ABOUT</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="about">ABOUT</a></li>
+          <li id="active"><a href="wine">WINES</a></li>
+          <li><a href="events">EVENTS</a></li>
+          <li><a href="contact">CONTACT</a></li>
+          <li><a href="shop">Shop</a></li>
         </ul>
         <nav class="hamburger" id="hamburger">
           <div>
@@ -35,17 +36,20 @@
               <a href="/"
                 ><img id="logo" src="images/icons/main_logo.webp" alt="Full Logo"
               /></a></span>
+              <span>
+                <a href="about">ABOUT</a>
+              </span>
             <span>
-              <a href="wine.html">WINES</a>
+              <a href="wine">WINES</a>
             </span>
             <span>
-              <a href="events.html">EVENTS</a>
+              <a href="events">EVENTS</a>
             </span>
             <span>
-              <a href="about.html">ABOUT</a>
+              <a href="contact">CONTACT</a>
             </span>
             <span>
-              <a href="contact.html">CONTACT</a>
+              <a href="shop">Shop</a>
             </span>
           </div>
         </nav>
@@ -141,7 +145,7 @@
                   flourish naturally. The result is a wine that is vibrant and
                   richly textured, with layers of fruit and a beautifully balanced
                   structure.</br></br>
-                  <a href="shop.html"><em> Shop Now <span></span></em></a></p>
+                  <a href="shop"><em> Shop Now <span></span></em></a></p>
               </span>
               <span id="image"></span>
             </div>
@@ -155,7 +159,7 @@
                   imparts subtle vanilla and spice notes. This handcrafted wine
                   embodies minimal intervention and expresses a creamy mouthfeel,
                   offering a delightful experience with every sip.</br></br>
-                  <a href="shop.html"><em>Shop Now <span></span></em></a></p>
+                  <a href="shop"><em>Shop Now <span></span></em></a></p>
               </span>
               <span id="image"></span>
             </div>
@@ -183,5 +187,113 @@
     <div class="cursor"></div>
     <p id="down">&darr;</p>
     <script src="script.js"></script>
+
+    <script>
+      
+
+// video script
+
+const winevideo = document.querySelector(
+  "#landing.wine-landing span video#horizontal"
+);
+const winevideo2 = document.querySelector(
+  "#landing.wine-landing span video#vertical"
+);
+const wineH1 = document.querySelector("#landing.wine-landing span h1");
+const playButton = document.getElementById("play");
+const pauseButton = document.getElementById("pause");
+const muteButton = document.getElementById("mute");
+const unmuteButton = document.getElementById("unmute");
+
+if (window.matchMedia("(max-width: 768px)").matches) {
+  winevideo.muted = true;
+  pauseButton.addEventListener("click", function () {
+    winevideo2.pause();
+    wineH1.style.opacity = "1";
+    pauseButton.style.display = "none";
+    playButton.style.display = "block";
+  });
+
+  playButton.addEventListener("click", function () {
+    winevideo2.play();
+    wineH1.style.opacity = "0";
+    playButton.style.display = "none";
+    pauseButton.style.display = "block";
+  });
+
+  unmuteButton.addEventListener("click", function () {
+    winevideo2.muted = true;
+    unmuteButton.style.display = "none";
+    muteButton.style.display = "block";
+  });
+
+  muteButton.addEventListener("click", function () {
+    winevideo2.muted = false;
+    muteButton.style.display = "none";
+    unmuteButton.style.display = "block";
+  });
+} else {
+  winevideo2.muted = true;
+  pauseButton.addEventListener("click", function () {
+    winevideo.pause();
+    wineH1.style.opacity = "1";
+    pauseButton.style.display = "none";
+    playButton.style.display = "block";
+  });
+
+  playButton.addEventListener("click", function () {
+    winevideo.play();
+    wineH1.style.opacity = "0";
+    playButton.style.display = "none";
+    pauseButton.style.display = "block";
+  });
+
+  unmuteButton.addEventListener("click", function () {
+    winevideo.muted = true;
+    unmuteButton.style.display = "none";
+    muteButton.style.display = "block";
+  });
+
+  muteButton.addEventListener("click", function () {
+    winevideo.muted = false;
+    muteButton.style.display = "none";
+    unmuteButton.style.display = "block";
+  });
+}
+
+
+
+// carousel script
+
+const items = document.querySelectorAll(".carousel-item");
+const prevButton = document.querySelector(".prev");
+const nextButton = document.querySelector(".next");
+
+let currentIndex = 0;
+
+function hideAllItems() {
+  items.forEach((item) => {
+    item.style.display = "none";
+  });
+}
+
+function showCurrentItem() {
+  hideAllItems();
+  items[currentIndex].style.display = "block";
+}
+
+nextButton.addEventListener("click", function () {
+  currentIndex = (currentIndex + 1) % items.length;
+  showCurrentItem();
+});
+
+prevButton.addEventListener("click", function () {
+  currentIndex = (currentIndex - 1 + items.length) % items.length;
+  showCurrentItem();
+});
+
+showCurrentItem();
+
+    </script>
   </body>
 </html>
