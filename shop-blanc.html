@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>African Diamond &mdash; Shop</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://db.onlinewebfonts.com/c/f1cfb0d208038e21ad90267089ab2584?family=Felix+Titling+V2"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="images/icons/head_icon.webp"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <main id="shop-details">
+      <header>
+        <ul>
+          <li class="homebutton">
+            <a href="/"
+              ><img id="logo" src="images/icons/main_logo.webp" alt="Full Logo"
+            /></a>
+          </li>
+          <li><a href="about">ABOUT</a></li>
+          <li><a href="wine">WINES</a></li>
+          <li><a href="events">EVENTS</a></li>
+          <li><a href="contact">CONTACT</a></li>
+          <li id="active"><a href="shop">Shop</a></li>
+        </ul>
+        <nav class="hamburger" id="hamburger">
+          <div>
+            <span id="home">
+              <a href="/"
+                ><img
+                  id="logo"
+                  src="images/icons/main_logo.webp"
+                  alt="Full Logo" /></a
+            ></span>
+            <span>
+              <a href="about">ABOUT</a>
+            </span>
+            <span>
+              <a href="wine">WINES</a>
+            </span>
+            <span>
+              <a href="events">EVENTS</a>
+            </span>
+            <span>
+              <a href="contact">CONTACT</a>
+            </span>
+            <span>
+              <a href="shop">Shop</a>
+            </span>
+          </div>
+        </nav>
+      </header>
+
+      <section class="noir-landing" id="landing">
+        <h1>Our Wines</h1>
+        <p>
+          At The African Diamond, we craft wines that capture the essence of
+          South Africa's diverse terroirs, expertly blending tradition with
+          innovation. Whether you're enjoying a vibrant celebration or a quiet
+          evening, our wines transform moments into memories.
+        </p>
+      </section>
+
+      <!-- Wine section -->
+      <section class="wine-shop" id="shop">
+        <!-- Grenache Blanc Section -->
+        <section class="wine-card">
+          <h2>Grenache Blanc</h2>
+          <span>
+            <div id="image">
+              <img src="images/assets/balnc_bottle.png" alt="Grenache Blanc" />
+            </div>
+            <div class="wine-item">
+              <p>
+                <strong>Description:</strong> </br>Fermented with wild yeasts in
+                300-liter French oak barrels, our Grenache Blanc develops rich
+                and complex characters. This handcrafted wine embodies minimal
+                intervention and offers a delightful experience with every sip.
+              </p>
+              <ul class="wine-details">
+                <li>
+                  <strong>Tasting Notes:</strong>
+                  <p>
+                    White stone fruit, hints of
+                    citrus, jasmine, and a touch of minerality. The French oak
+                    imparts subtle vanilla and spice notes.
+                  </p> 
+                </li>
+                <li><strong>Origin:</strong>
+                  <p>Swartland, South Africa</p>
+                </li>
+                <li>
+                  <strong>Vineyard:</strong>
+                  <p>
+                    Low yield, bush-vine Grenache Blanc
+                    on well-drained sandy soil.
+                  </p>
+                </li>
+                <li>
+                  <strong>Wine-making:</strong>
+                  <p>
+                    Wild fermented in French oak
+                    barrels, aged for 8 months on fine lees for texture and depth.
+                  </p>
+                </li>
+                <li>
+                  <strong>Serve & Aging:</strong>
+                  <p> 
+                    Best served at 10 to 12°C. It 
+                    will continue to evolve over the next 2 years.
+                  </p>
+                </li>
+              </ul>
+              <h3>Price:</h3>
+              <ul class="price">
+                <li><p>Single Bottle: </p><span></span><em>R 210.00</em></li>
+                <li><p>Case (6 Bottles): </p><span></span><em>R 1080.00</em></li>
+                <li><p>Wine Duo (Blanc + Noir): </p><span></span><em>R 370.00</em></li>
+              </ul>
+              <h4>Pairing Suggestions:</h4>
+              <p>
+                Enjoy this wine with light seafood dishes, creamy cheeses, or
+                chicken with a citrus glaze.
+              </p>
+            </div>
+          </span>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section class="customer-reviews">
+          <section class="review-section">
+            <h3>Rate this product:</h3>
+            <div class="star-rating">
+              <span class="star" data-value="1">&#9733;</span>
+              <span class="star" data-value="2">&#9733;</span>
+              <span class="star" data-value="3">&#9733;</span>
+              <span class="star" data-value="4">&#9733;</span>
+              <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <p id="rating-value">No rating yet</p>
+          </section>
+    
+          <!-- Key Metrics <section class="key-metrics">
+            <h3>Product Ratings</h3>
+            <div class="metric">
+              <p>Quality of Product:</p>
+              <div class="rating-bar">
+                <div class="bar" style="width: 90%;"></div>
+              </div>
+              <span>4.5/5</span>
+            </div>
+    
+            <div class="metric">
+              <p>Value of Product:</p>
+              <div class="rating-bar">
+                <div class="bar" style="width: 80%;"></div>
+              </div>
+              <span>4/5</span>
+            </div>
+    
+            <div class="metric">
+              <p>Purchase Again:</p>
+              <div class="rating-bar">
+                <div class="bar" style="width: 95%;"></div>
+              </div>
+              <span>4.8/5</span>
+            </div>
+          </section> -->
+    
+          <section class="cta-review">
+            <a id="openReviewModal" class="review-button">Write a Review</a>
+          </section>
+        </section>
+        
+        <!-- Pop-up Review Modal -->
+        <div id="reviewModal" class="modal">
+          <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Submit Your Review</h2>
+            
+            <!-- Review Form -->
+            <form id="reviewForm">
+              <label id="ratingLabel" for="rating">Overall Rating<em>*</em></label>
+              <div class="rating">
+                <span class="star" data-value="5">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="1">&#9733;</span>
+              </div>
+              <p id="ratingDisplay">1 out of 5 stars selected. Product is poor.</p>
+  
+              <label for="reviewText">Review<em>*</em></label>
+              <textarea id="reviewText" name="reviewText" placeholder="Write your review here..." required></textarea>
+  
+              <label for="reviewTitle">Review Title<em>*</em></label>
+              <input type="text" id="reviewTitle" name="reviewTitle" required>
+  
+              <label for="email">Your Email<em>*</em></label>
+              <input type="email" id="email" name="email" required>
+  
+              <button type="submit" class="submitBtn">Submit Review</button>
+            </form>
+            <p class="required"><em>*</em> Required</p>
+          </div>
+        </div>
+
+        <!-- FAQ Section
+        <section class="faq">
+          <h2>FAQs</h2>
+          <ul>
+            <li>
+              <strong>How should I store this wine?</strong> Store in a cool,
+              dark place at a consistent temperature.
+            </li>
+            <li>
+              <strong>How long will this wine age?</strong> Both wines will
+              evolve in complexity for up to 2 years.
+            </li>
+            <li>
+              <strong>What is the best way to serve it?</strong> Serve Blanc at
+              10-12°C and Noir at 12-16°C.
+            </li>
+            <li>
+              <strong
+                >Where can I find The African Diamond in local stores?</strong
+              >
+              Use our store locator or contact us to find a stockist near you.
+            </li>
+          </ul>
+        </section> -->
+
+        <!-- Wine Club Section 
+        <section class="wine-club">
+          <h2>Wine Club</h2>
+          <p>
+            Become a member of The African Diamond Wine Club for exclusive
+            access to new releases, discounts, and early invitations to events.
+            Enjoy regular deliveries with our subscription box service.
+          </p>
+        </section> -->
+
+        <!-- Shipping Information 
+        <section class="shipping-info">
+          <h2>Shipping Information</h2>
+          <p>
+            We offer nationwide delivery and international shipping with options
+            for gift-wrapping and personalized notes for special occasions.
+          </p>
+        </section> -->
+
+        <section class="shop-card" id="shop-card">
+          <h2>Related Products</h2>
+          <div class="noir">
+            <img src="images/assets/noir_bottle.png" alt="Genache Noir" />
+            <h3>Grenache Noir</h3>
+            <span>
+              <a href="shop-noir">View Details</a>
+            </span>
+          </div>
+        </section>
+      </section>
+
+      <footer>
+        <p>
+          PRIVACY POLICY | TERMS & CONDITIONS | &copy; 2023 AFRICAN DIAMOND
+          WINERARY
+        </p>
+      </footer>
+    </main>
+
+    <div class="cursor"></div>
+    <script src="script.js"></script>
+
+    <script>
+      const stars = document.querySelectorAll('.star');
+      const ratingValue = document.getElementById('rating-value');
+
+      // Handle star hover and click events
+      stars.forEach(star => {
+        star.addEventListener('mouseover', () => {
+          resetStars();
+          highlightStars(star.getAttribute('data-value'));
+        });
+
+        // Show selected rating on click
+        star.addEventListener('click', () => {
+          ratingValue.innerText = `You rated this product ${star.getAttribute('data-value')} out of 5!
+          We'd love to hear your thoughts below.`;
+        });
+      });
+
+      // Function to reset all stars
+      function resetStars() {
+        stars.forEach(star => star.innerHTML = '&#9733;');
+      }
+
+      // Function to highlight stars based on the rating
+      function highlightStars(rating) {
+        stars.forEach(star => {
+          if (star.getAttribute('data-value') <= rating) {
+            star.style.color = '#bb9339';
+          } else {
+            star.style.color = 'grey';
+          }
+        });
+      }
+
+      // Script for Review Modal and Form Handling
+
+      // Elements
+      const modal = document.getElementById("reviewModal");
+      const openModalBtn = document.getElementById("openReviewModal");
+      const closeModal = document.getElementById("closeModal");
+      const form = document.getElementById("reviewForm");
+      const starrate = document.querySelectorAll(".star");
+      let rating = 1;
+
+      // Open modal on button click
+      openModalBtn.addEventListener("click", () => {
+        modal.style.display = "flex";
+      });
+
+      // Close modal on clicking the close button
+      closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      // Close modal on clicking outside the modal content
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      // Star rating logic
+      starrate.forEach(star => {
+        star.addEventListener("click", () => {
+          // Remove selected class from all stars
+          starrate.forEach(s => s.classList.remove("selected"));
+
+          // Add selected class to clicked star and all previous stars
+          star.classList.add("selected");
+          for (let i = 0; i < star.dataset.value; i++) {
+            starrate[i].classList.add("selected");
+          }
+    
+          // Update rating
+          rating = star.dataset.value;
+          document.getElementById("ratingDisplay").textContent = `${rating} out of 5 stars selected.`;
+        });
+      });
+
+      // Handle form submission
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Form validation: check if all fields are filled
+        const reviewText = document.getElementById("reviewText").value;
+        const reviewTitle = document.getElementById("reviewTitle").value;
+        const email = document.getElementById("email").value;
+
+        if (!reviewText || !reviewTitle || !email) {
+          alert("Please fill out all required fields.");
+          return;
+        }
+
+        // Send form data via email (using mailto for this example)
+        const subject = `New Review: ${reviewTitle}`;
+        const body = `Rating: ${rating}/5\nReview: ${reviewText}\nEmail: ${email}`;
+        const mailtoLink = `mailto:info@theafricandiamond.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  
+        window.location.href = mailtoLink;
+
+        // Close modal after submission
+        modal.style.display = "none";
+      });
+
+    </script>
+  </body>
+</html>

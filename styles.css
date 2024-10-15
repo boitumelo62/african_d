@@ -54,6 +54,7 @@ header {
       transition: all 0.3s ease;
 
       &.homebutton {
+        width: 150%;
         border-bottom: none;
       }
     }
@@ -123,7 +124,7 @@ main {
     color: #dbdbdb;
     width: 96vw;
     height: 96vh;
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -197,6 +198,7 @@ section.footer {
 
     & p {
       font-size: 20px;
+      color: #333433;
     }
   }
 }
@@ -232,16 +234,21 @@ section.footer {
     gap: 24px;
     position: relative;
     top: 12vh;
+    align-items: baseline;
 
     & li {
       list-style-type: none;
 
-      & img {
-        width: 28px;
+      & a img {
+        height: 28px;
 
         &:hover {
           filter: brightness(100);
         }
+      }
+
+      & a.whatsapp-button img {
+        height: 30px;
       }
     }
   }
@@ -525,13 +532,13 @@ h1.gallery {
 
 .gallery-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 5px;
   transition: transform 0.3s ease;
 }
 
 .gallery-item:hover img {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 .overlay {
@@ -576,6 +583,42 @@ h1.gallery {
   color: white;
 }
 
+/* Lightbox Modal 
+#lightbox {
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  margin: auto;
+}
+
+#lightbox-caption {
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.homeclose {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}*/
+
 section.review {
   padding: 24px;
   width: 96vw;
@@ -588,12 +631,6 @@ section.review {
     align-items: center;
     margin: 0 auto;
 
-    &:hover {
-      & div.review-card p {
-        color: #000;
-      }
-    }
-
     & h1 {
       margin: 0 24px 24px 24px;
       padding: 0;
@@ -602,6 +639,7 @@ section.review {
     }
 
     & div.review-card {
+      width: 100%;
       display: flex;
       flex-direction: row;
       gap: 24px;
@@ -610,6 +648,10 @@ section.review {
       transition: all 4s ease;
 
       & .contentlist {
+        width: 56vw;
+        display: flex;
+        margin: 0 auto;
+
         & p {
           font-size: 1.2rem;
           font-family: "Arial Nova", Arial, sans-serif;
@@ -622,7 +664,7 @@ section.review {
       & span {
         border: solid #bb9339;
         border-width: 0 2px 2px 0;
-        width: 24px;
+        height: 16px;
         aspect-ratio: 1 / 1;
         display: flex;
         opacity: 0.5;
@@ -636,10 +678,14 @@ section.review {
       }
 
       & span#arrow-left {
+        position: absolute;
+        left: 16vw;
         transform: rotate(135deg);
       }
 
       & span#arrow-right {
+        position: absolute;
+        right: 16vw;
         transform: rotate(-45deg);
       }
     }
@@ -649,7 +695,6 @@ section.review {
 .contentlist {
   display: none;
   width: 100%;
-  padding: 0 24px;
 }
 
 #contentlist1 {
@@ -1052,7 +1097,7 @@ section.wine-landing {
       gap: 12px;
       height: 24px;
       position: absolute;
-      bottom: 6.4vh;
+      top: 90vh;
       right: 4vw;
       color: #dbdbdb;
 
@@ -1364,6 +1409,598 @@ section.collection {
   }
 }
 
+/* Shop Page */
+
+main.shop section.shop-landing {
+  background-color: #dbdbdb;
+  background-image: url("images/backgrounds/shop_noir.webp");
+  background-position: right bottom;
+  background-size: 100% auto;
+  transition: background-image 1s ease-in-out;
+}
+
+section.shop-landing span {
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  justify-content: center;
+  padding: 0 4vw;
+  color: #dbdbdb;
+
+  & h3 {
+    font-size: 1.2rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+  }
+
+  & h1 {
+    font-size: 2.2rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+    padding-bottom: 12vh;
+  }
+
+  & p {
+    font-size: 1.2rem;
+    font-family: "Arial Nova", Arial, sans-serif;
+    padding-bottom: 4vh;
+  }
+
+  & a {
+    display: block;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+
+  & a:hover {
+    color: #dbdbdb;
+    text-decoration: underline;
+  }
+}
+
+section.shop-landing span.noir {
+  position: absolute;
+  top: 50%;
+  left: 4vw;
+  transform: translate(-4vh, -50%);
+  display: flex;
+
+  & h1 {
+    color: #f8b091;
+  }
+
+  & a {
+    color: #f8b091;
+  }
+}
+
+section.shop-landing span.balnc {
+  position: absolute;
+  top: 50%;
+  left: 4vw;
+  transform: translate(-4vh, -50%);
+  display: none;
+
+  & h1 {
+    color: #bb9339;
+  }
+
+  & a {
+    color: #bb9339;
+  }
+}
+
+section.shop-landing span.shop-arrow {
+  display: flex;
+  justify-content: end;
+  z-index: 997;
+  margin-top: 80vh;
+
+  & h2 {
+    color: #f8b091;
+    font-size: 1.8rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+    cursor: pointer;
+  }
+}
+
+section.shop-card {
+  width: 60vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin: 24px;
+}
+
+section.shop-card div {
+  background-color: #d1d1d1;
+  border-radius: 5px;
+  aspect-ratio: 1 / 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  padding: 24px;
+
+  &:hover {
+    box-shadow: 0 0 5px #333433ab;
+  }
+}
+
+section.shop-card div img {
+  width: 100%;
+}
+
+section.shop-card div h3 {
+  font-size: 1.8rem;
+  font-family: "Felix Titling V2";
+  font-weight: normal;
+}
+
+section.shop-card div span {
+  display: flex;
+  gap: 24px;
+
+  & a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #bb9339;
+    font-family: "Felix Titling V2";
+  }
+
+  & a:hover {
+    color: #000;
+  }
+}
+
+main#shop-details section#landing {
+  background-color: #dbdbdb;
+  background-image: url("images/backgrounds/shop_background.webp");
+  background-position: top center;
+  background-size: cover;
+  height: 70vh;
+  align-items: center;
+  text-align: center;
+}
+
+main#shop-details section#landing h1 {
+  font-size: 2.2rem;
+  font-family: "Felix Titling V2";
+  font-weight: normal;
+  padding-top: 2rem;
+}
+
+main#shop-details section#landing p {
+  font-size: 1.2rem;
+  font-family: "Arial Nova", Arial, sans-serif;
+  width: 60vw;
+}
+
+section.wine-shop {
+  display: flex;
+  flex-direction: column;
+  width: 96vw;
+  height: auto;
+  margin: 0 auto;
+  gap: 72px;
+}
+
+section.wine-shop section.wine-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+
+  & h2 {
+    font-size: 2rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+    color: #333433;
+    padding-top: 24px;
+  }
+}
+
+section.wine-shop section.wine-card span {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+
+  & div#image {
+    width: 40%;
+    align-items: center;
+  }
+
+  & div.wine-item {
+    width: 60%;
+
+    & p {
+      font-size: 1.2rem;
+      font-family: "Arial Nova", Arial, sans-serif;
+
+      & strong {
+        font-family: "Felix Titling V2";
+        font-weight: normal;
+      }
+    }
+
+    & h3 {
+      font-size: 1.8rem;
+      font-family: "Felix Titling V2";
+      font-weight: normal;
+    }
+
+    & h4 {
+      font-size: 1.2rem;
+      font-family: "Felix Titling V2";
+      font-weight: normal;
+      padding-top: 12px;
+    }
+  }
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  & img {
+    width: 100%;
+  }
+}
+
+ul.wine-details li {
+  display: grid;
+  grid-template-columns: 1fr 3.2fr;
+  gap: 24px;
+  padding: 12px;
+
+  & strong {
+    width: 100px;
+    font-size: 1.2rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+  }
+
+  & p {
+    font-size: 1.2rem;
+    font-family: "Arial Nova", Arial, sans-serif;
+  }
+}
+
+ul.price li {
+  display: grid;
+  grid-template-columns: auto 2fr auto;
+  justify-content: space-evenly;
+  gap: 12px;
+
+  & em {
+    width: 100px;
+    font-size: 1.2rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  & span {
+    border-bottom: #bb9339 dotted 2px;
+  }
+}
+
+/* Star Rating Section */
+.review-section {
+  text-align: center;
+
+  & h3 {
+    font-size: 1.8rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+  }
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.star {
+  font-size: 2rem;
+  cursor: pointer;
+  color: grey;
+  transition: color 0.3s ease;
+}
+
+.star:hover,
+.star:hover ~ .star {
+  color: #bb9339;
+}
+
+/* Key Metrics Section */
+.key-metrics {
+  margin: 20px 0;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.rating-bar {
+  width: 200px;
+  height: 10px;
+  background-color: #dbdbdb;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.bar {
+  height: 100%;
+  background-color: #bb9339;
+  border-radius: 5px;
+}
+
+.metric span {
+  font-weight: bold;
+}
+
+/* Call-to-Action for Reviews */
+.cta-review {
+  text-align: center;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.cta-review h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.cta-review p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.review-button {
+  text-decoration: none;
+  background-color: #bb9339;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.review-button:hover {
+  background-color: #bb9339;
+}
+
+section.wine-community {
+  border-top: #bb9339 dotted 2px;
+  display: flex;
+  width: 96vw;
+  height: auto;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 24px;
+  align-items: center;
+  text-align: center;
+
+  & h2 {
+    font-size: 2rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+    color: #333433;
+    padding-top: 36px;
+  }
+
+  & p {
+    font-size: 1.2rem;
+    font-family: "Arial Nova", Arial, sans-serif;
+    width: 60vw;
+  }
+
+  & ul {
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    list-style: none;
+
+    & li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+
+      & img {
+        width: 80%;
+      }
+    }
+  }
+}
+
+.gallery-item section#shop-card {
+  grid-template-columns: 1fr;
+  width: 25vw;
+  text-align: center;
+  margin: 0 auto;
+
+  & h3 {
+    font-size: 1.8rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+  }
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: #d1d1d1;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 50vw;
+  width: 100%;
+  text-align: center;
+
+  & h2 {
+    font-size: 1.8rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+  }
+
+  & p.required {
+    text-align: right;
+  }
+}
+
+.close {
+  color: #d1d1d1;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 48px;
+  cursor: pointer;
+}
+
+#reviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  & em {
+    color: #bb9439b2;
+  }
+
+  & label {
+    font-size: 1.2rem;
+    font-family: "Arial Nova", Arial, sans-serif;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 8px;
+
+    &#ratingLabel {
+      text-align: center;
+      padding-top: 12px;
+    }
+  }
+
+  & textarea {
+    background-color: #d1d1d1;
+    font-size: 0.8rem;
+    font-family: "Arial Nova", Arial, sans-serif;
+    font-weight: normal;
+    padding: 4px 8px;
+
+    &:focus {
+      background-color: white;
+      outline: none;
+    }
+  }
+
+  & input {
+    background-color: #d1d1d1;
+    font-size: 0.8rem;
+    font-family: "Arial Nova", Arial, sans-serif;
+    font-weight: normal;
+    padding: 4px 8px;
+
+    &:focus {
+      background-color: white;
+      outline: none;
+    }
+  }
+
+  & button {
+    background-color: #bb9339;
+    color: #000;
+    padding: 10px 20px;
+    border: #bb9339 solid 2px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #333433;
+      color: #bb9339;
+      border: #bb9339 solid 2px;
+    }
+
+    &:active {
+      background-color: #bb9339;
+      color: #000;
+      border: #bb9339 solid 2px;
+    }
+  }
+}
+
+/* Rating Stars */
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 4px;
+}
+
+.rating .star {
+  font-size: 24px;
+  color: gray;
+  cursor: pointer;
+}
+
+.rating .star:hover,
+.rating .star.selected {
+  color: #bb9339;
+}
+
+main#shop-details section#shop-card {
+  grid-template-columns: 1fr;
+  text-align: center;
+  margin: 0 auto;
+
+  & div {
+    width: 40%;
+    margin: 0 auto;
+  }
+
+  & h2 {
+    font-size: 1.8rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+  }
+
+  & h3 {
+    font-size: 1.4rem;
+    font-family: "Felix Titling V2";
+    font-weight: normal;
+  }
+
+  & a {
+    font-size: 1.2rem;
+    font-family: "Arial Nova", Arial, sans-serif;
+    font-weight: normal;
+  }
+}
+
 /* Hamburger Menu Styles */
 
 .hamburger {
@@ -1517,6 +2154,14 @@ section.collection {
       & div.review-card .contentlist p {
         font-size: 1rem;
       }
+    }
+
+    & div.review-container div.review-card span#arrow-left {
+      left: 12vw;
+    }
+
+    & div.review-container div.review-card span#arrow-right {
+      right: 12vw;
     }
   }
 
@@ -1693,6 +2338,10 @@ section.collection {
     & span {
       place-content: center;
 
+      & div {
+        top: 92vh;
+      }
+
       & video {
         width: auto;
         margin: 0 auto;
@@ -1770,6 +2419,59 @@ section.collection {
       height: 40vh;
     }
   }
+
+  main.shop section.shop-landing {
+    background-position: calc(100% - 25%) bottom;
+  }
+
+  section.shop-landing span.balnc,
+  section.shop-landing span.noir {
+    left: 12vw;
+  }
+
+  section.shop-card {
+    grid-template-columns: 1fr;
+    width: 90vw;
+  }
+
+  .modal-content {
+    max-width: 88vw;
+  }
+
+  section.wine-shop section.wine-card span {
+    flex-direction: column;
+
+    & div {
+      margin: 0 auto;
+    }
+
+    & div#image {
+      width: 50%;
+    }
+
+    & div.wine-item {
+      width: 96%;
+    }
+  }
+
+  main#shop-details section#shop-card {
+    & div {
+      width: 80%;
+    }
+  }
+
+  .close {
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+  }
+
+  section.wine-community {
+    & ul {
+      flex-wrap: wrap;
+    }
+  }
 }
 
 @media only screen and (max-width: 1280px) {
@@ -1786,5 +2488,21 @@ section.collection {
 
   section.about-landing span video {
     width: auto;
+  }
+
+  main.shop section.shop-landing {
+    background-size: auto 100%;
+  }
+
+  main.shop section.shop-landing span h1 {
+    padding-bottom: 8vh;
+  }
+
+  section.wine-shop section.wine-card span {
+    & div#image {
+      & img {
+        width: 120%;
+      }
+    }
   }
 }
