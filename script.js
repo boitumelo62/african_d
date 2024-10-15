@@ -58,3 +58,27 @@ document.querySelectorAll("a").forEach((link) => {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Instagram Gallery Loaded.");
 });
+
+// Age Verification Modal
+window.onload = function () {
+  const ageModal = document.getElementById("age-check-modal");
+  const yesButton = document.getElementById("yes-button");
+  const noButton = document.getElementById("no-button");
+
+  // Check if the user has already passed the age check
+  if (!localStorage.getItem("ageVerified")) {
+    // Show the modal if not verified
+    ageModal.style.display = "flex";
+  }
+
+  // If "Yes" button is clicked
+  yesButton.onclick = function () {
+    localStorage.setItem("ageVerified", "true");
+    ageModal.style.display = "none"; // Hide the modal and proceed
+  };
+
+  // If "No" button is clicked
+  noButton.onclick = function () {
+    window.location.href = "https://www.google.com"; // Redirect to another site
+  };
+};

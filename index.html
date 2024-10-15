@@ -14,7 +14,22 @@
       type="image/x-icon" />
   </head>
   <body>
-    <main>
+    <main><!-- Age Verification Modal -->
+      <div id="age-check-modal" class="modal">
+          <div class="modal-content">
+              <h2>Age <span class="highlight">Check</span></h2>
+              <p>Are you of legal drinking age in your country?</p>
+              <div class="modal-buttons">
+                  <button id="yes-button" class="proceed-btn">Yes, Proceed to the Site</button>
+                  <button id="no-button" class="exit-btn">No</button>
+              </div>
+              <p class="legal-info">
+                  Entering the site you agree with our 
+                  <a href="terms.html">terms and conditions</a> and 
+                  <a href="cookie-policy.html">cookie policy</a>.
+              </p>
+          </div>
+      </div>
       <header>
         <ul>
           <li class="homebutton">
