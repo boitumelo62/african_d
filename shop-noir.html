@@ -81,7 +81,7 @@
               <p>
                 <strong>Description:</strong> </br>Sourced from the rare, dryland
                 bush vine vineyards, our Grenache Noir showcases the intense
-                concentration of flavors typical of these resilient vines.
+                concentration of flavours typical of these resilient vines.
               </p>
               <ul class="wine-details">
                 <li>
@@ -129,9 +129,67 @@
                 Pairs perfectly with roasted lamb, grilled vegetables, or dark
                 chocolate.
               </p>
+
+              <span id="btn">
+                <button id="openOrderModal" class="order-button">Place Order</button>
+                <a target="_blank" href="images/assets/African Diamond Tasting Notes .pdf" download="Tasting Notes"><button>Download Full Tasting Notes</button></a>
+              </span>
             </div>
           </span>
         </section>
+
+        <!-- Order Modal -->
+        <div id="orderModal" class="modal">
+          <div class="modal-content">
+            <span class="close" id="closeOrderModal">&times;</span>
+            <h2>Place Your Order</h2>
+    
+            <!-- Order Form -->
+            <form id="orderForm">
+              <div>
+              <!-- Bottle Quantity -->
+              <span id="quantity"><label for="bottleQty">Grenache Noir &mdash; Bottle (R235.00 each)<em>*</em></label>
+              <input type="number" id="bottleQty" name="bottleQty" min="0" value="0"></span>
+
+              <!-- Case Quantity -->
+              <span id="quantity"><label for="caseQty">Grenache Noir &mdash; Case of 6 Bottles (R1110.00)<em>*</em></label>
+              <input type="number" id="caseQty" name="caseQty" min="0" value="0"></span>
+
+              <!-- Duo Quantity -->
+              <span id="quantity"><label for="duoQty">Wine Duo (Blanc + Noir) (R370.00)<em>*</em></label>
+              <input type="number" id="duoQty" name="duoQty" min="0" value="0"></span>
+              </div>
+
+              <!-- Delivery Address -->
+              <label for="address">Delivery Address<em>*</em></label>
+              <textarea id="address" name="address" placeholder="Enter your delivery address..." required></textarea>
+
+              <!-- Payment Method
+              <label for="payment">Payment Method<em>*</em></label>
+              <select id="payment" name="payment" required>
+                <option value="card">Credit/Debit Card</option>
+                <option value="eft">EFT</option>
+                <option value="paypal">PayPal</option>
+              </select> -->
+
+              <!-- Email -->
+              <label for="email">Your Email<em>*</em></label>
+              <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+              <!-- Shipping Fee -->
+              <span id="payment"><label for="shipping">Shipping Fee<em>*</em></label>
+              <p id="shippingFee">R50.00 (Standard Rate)</p></span>
+
+              <!-- Total Amount -->
+              <span id="payment" class="total"><label for="totalAmount">Total Amount</label>
+              <p id="totalAmount">R0.00</p></span>
+
+              <button type="submit" class="submitBtn">Submit Order</button>
+      
+              <p class="required"><em>*</em> Required</p>
+            </form>
+          </div>
+        </div>
 
         <!-- Customer Reviews -->
         <section class="customer-reviews">
@@ -202,7 +260,7 @@
               <textarea id="reviewText" name="reviewText" placeholder="Write your review here..." required></textarea>
   
               <label for="reviewTitle">Review Title<em>*</em></label>
-              <input type="text" id="reviewTitle" name="reviewTitle" required>
+              <input type="text" id="reviewTitle" name="reviewTitle" placeholder="Example: Grenache Noir Taste" required>
   
               <label for="email">Your Email<em>*</em></label>
               <input type="email" id="email" name="email" required>
@@ -270,10 +328,9 @@
       </section>
 
       <footer>
-        <p>
-          PRIVACY POLICY | TERMS & CONDITIONS | &copy; 2023 AFRICAN DIAMOND
-          WINERARY
-        </p>
+        <p><a href="privacy-policy.html">PRIVACY POLICY</a></p> | 
+        <p><a href="terms.html">TERMS & CONDITIONS</a></p> | 
+        <p>&copy; 2023 THE AFRICAN DIAMOND</p>
       </footer>
     </main>
 
@@ -382,6 +439,82 @@
 
         // Close modal after submission
         modal.style.display = "none";
+      });
+
+      // Order Modal JavaScript
+      const orderModal = document.getElementById('orderModal');
+      const openOrderModal = document.getElementById('openOrderModal');
+      const closeOrderModal = document.getElementById('closeOrderModal');
+      const orderForm = document.getElementById('orderForm');
+
+      const bottlePrice = 235;
+      const casePrice = 1110;
+      const duoPrice = 370;
+      const shippingFee = 50;
+
+      const bottleQtyInput = document.getElementById('bottleQty');
+      const caseQtyInput = document.getElementById('caseQty');
+      const duoQtyInput = document.getElementById('duoQty');
+      const totalAmountElement = document.getElementById('totalAmount');
+
+      // Function to calculate total order amount
+      function calculateTotal() {
+        const bottleQty = parseInt(bottleQtyInput.value) || 0;
+        const caseQty = parseInt(caseQtyInput.value) || 0;
+        const duoQty = parseInt(duoQtyInput.value) || 0;
+
+        const totalAmount = (bottleQty * bottlePrice) + (caseQty * casePrice) + (duoQty * duoPrice) + shippingFee;
+        totalAmountElement.textContent = `R${totalAmount.toFixed(2)}`;
+      }
+
+      // Update total amount when quantities change
+      [bottleQtyInput, caseQtyInput, duoQtyInput].forEach(input => {
+        input.addEventListener('input', calculateTotal);
+      });
+
+      // Open order modal on button click
+      openOrderModal.addEventListener('click', () => {
+        orderModal.style.display = 'flex';
+        calculateTotal(); // Recalculate total when modal opens
+      });
+
+      // Close modal on clicking close button
+      closeOrderModal.addEventListener('click', () => {
+        orderModal.style.display = 'none';
+      });
+
+      // Close modal on clicking outside modal content
+      window.onclick = function(event) {
+  if (event.target == orderModal) {
+    orderModal.style.display = 'none';
+  }
+};
+
+      // Handle form submission
+      orderForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get form values
+        const bottleQty = document.getElementById('bottleQty').value || 0;
+        const caseQty = document.getElementById('caseQty').value || 0;
+        const duoQty = document.getElementById('duoQty').value || 0;
+        const address = document.getElementById('address').value;
+        // const payment = document.getElementById('payment').value;
+        const email = document.getElementById('email').value;
+
+        // Calculate total
+        const totalAmount = (bottleQty * bottlePrice) + (caseQty * casePrice) + (duoQty * duoPrice) + shippingFee;
+
+        // Prepare order details
+        const subject = `New Order: Bottles - ${bottleQty}, Cases - ${caseQty}, Duos - ${duoQty}`;
+        const body = `Bottles: ${bottleQty}\nCases: ${caseQty}\nDuos: ${duoQty}\nDelivery Address: ${address}\nEmail: ${email}\nTotal Amount: R${totalAmount.toFixed(2)}\nShipping Fee: R50.00`;//\nPayment Method: ${payment}
+
+        // Send order details via email (using mailto link in this case)
+        const mailtoLink = `mailto:sales@theafricandiamond.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
+
+        // Close the modal after submission
+        orderModal.style.display = 'none';
       });
 
     </script>

@@ -58,3 +58,23 @@ document.querySelectorAll("a").forEach((link) => {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Instagram Gallery Loaded.");
 });
+
+// Age Verification Modal
+window.onload = function () {
+  const ageModal = document.getElementById("age-check-modal");
+  const yesButton = document.getElementById("yes-button");
+  const noButton = document.getElementById("no-button");
+
+  if (!localStorage.getItem("ageVerified")) {
+    ageModal.style.display = "flex";
+  }
+
+  yesButton.onclick = function () {
+    localStorage.setItem("ageVerified", "true");
+    ageModal.style.display = "none";
+  };
+
+  noButton.onclick = function () {
+    window.location.href = "https://www.google.com";
+  };
+};
