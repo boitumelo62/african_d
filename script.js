@@ -65,20 +65,16 @@ window.onload = function () {
   const yesButton = document.getElementById("yes-button");
   const noButton = document.getElementById("no-button");
 
-  // Check if the user has already passed the age check
   if (!localStorage.getItem("ageVerified")) {
-    // Show the modal if not verified
     ageModal.style.display = "flex";
   }
 
-  // If "Yes" button is clicked
   yesButton.onclick = function () {
     localStorage.setItem("ageVerified", "true");
-    ageModal.style.display = "none"; // Hide the modal and proceed
+    ageModal.style.display = "none";
   };
 
-  // If "No" button is clicked
   noButton.onclick = function () {
-    window.location.href = "https://www.google.com"; // Redirect to another site
+    window.location.href = "https://www.google.com";
   };
 };
